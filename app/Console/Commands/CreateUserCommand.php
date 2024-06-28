@@ -33,7 +33,7 @@ class CreateUserCommand extends Command
     {
         $user['name'] = $this->ask('Name of the user');
         $user['email'] = $this->ask('Email of the user');
-        $user['password'] = Hash::make($this->secret('password of the user'));
+        $user['password'] = $this->secret('password of the user');
 
         $roleName = $this->choice('Role of the user', ['admin', 'editor'], 1);
 
@@ -61,6 +61,7 @@ class CreateUserCommand extends Command
 
 
         DB::transaction(function () use ($role, $user) {
+            $user['password'] = Hash::make($user['password']);
             $newUser = User::create($user);
             $newUser->roles()->attach($role->id);
         });
