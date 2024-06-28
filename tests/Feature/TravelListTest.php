@@ -24,11 +24,6 @@ class TravelListTest extends TestCase
         $response->assertJsonPath('meta.last_page', 2);
     }
 
-    public function testCreateTravel()
-    {
-        $data = Travel::factory(1)->create(['is_public' => true]);
-
-    }
 
     public function testTravelsListShowsOnlyPublicRecords(): void
     {

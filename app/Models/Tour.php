@@ -16,7 +16,7 @@ class Tour extends Model
         'travel_id',
         'name',
         'starting_date',
-        'ending_data',
+        'ending_date',
         'price'
     ];
 

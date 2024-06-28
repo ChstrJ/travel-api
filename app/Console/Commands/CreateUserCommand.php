@@ -66,7 +66,7 @@ class CreateUserCommand extends Command
             $newUser->roles()->attach($role->id);
         });
 
-        $this->info("User {$user['email']} created successfully");
+        $this->info("User {$user['email']} with the role {$roleName} of created successfully");
 
         return 0;
     }
